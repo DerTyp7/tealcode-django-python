@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+*{
+    padding: 0;
+    margin:0;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+
+body{
+    background-color: rgb(38, 38, 42);
+}
+
+body header{
+    background-color: rgb(34, 102, 71);
+    padding: 10px;
+    padding-left: 150px;
+    box-shadow: 0px 1px 20px 3px #1f1d1d;
+}
+
+body header h1{
+    letter-spacing: 5.5px;
+}
+
+body main #main-content{
+    background-color: rgb(26, 26, 29);
+    width: 700px;
+    box-shadow: 0px 0px 5px 1px #1f1d1d;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    margin-top: 40px;
+}
+
+body main #main-content #main-headline h2{
+    text-align: center;
+    letter-spacing: 2.5px;
+}
+
+body main #main-content #main-content-code{
+    width: 600px;
+    margin-left: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+
+body main #main-content #list{
+    width: 700px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+body main #main-content #list .list-item{
+    width: 600px;
+    margin-left: 50px;
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgb(14, 139, 87);
+    transition-timing-function: linear;
+    transition: 0.1s;
+    cursor:pointer;
+}
+
+body main #main-content #list .list-item:hover{
+    box-shadow: 0px 0px 10px 1px #4b4b4b;
+    background-color: rgb(31, 177, 116);
+}
+body main #main-content #list .list-item p{
+    letter-spacing: 1px;
+    margin-left: 50px;
+    font-size: 14pt;
+}
+
+body main #main-content #list .list-item img{
+    float: left;
+    width: 32px;
+    height: 32px;
+    margin-left: 10px;
+    margin-top: -5px;
+}

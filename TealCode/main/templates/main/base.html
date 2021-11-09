@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'main/highlight/styles/atom-one-dark.min.css' %}">
+
+    {% if title %}
+        <title>TealCode - {{ title }}</title>
+    {% else %}
+        <title>TealCode</title>
+    {% endif %}
+</head>
+<body>
+    <header>
+        <h1>TealFire</h1>
+    </header>
+    <main>
+        <div id="main-content">
+            <div id="main-headline">
+                <h2>How To Convert a String to Int</h2>
+            </div>
+            
+            {% block content %}{% endblock %}
+            
+        </div>
+    </main>
+
+    <script src="{% static 'main/highlight/highlight.min.js' %}"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>
