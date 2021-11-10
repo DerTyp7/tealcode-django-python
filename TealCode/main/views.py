@@ -28,7 +28,8 @@ def category(req, category):
     if category:
         category_obj = Category.objects.filter(title = category).first()
         if category_obj:
-            return render(req, "main/category.html", {'category_obj': category_obj})
+            topics_obj = Topic.objects.filter(category=category_obj)
+            return render(req, "main/category.html", {'category_obj': category_obj, 'topics': topics_obj})
         
     
     return redirect("main-index")

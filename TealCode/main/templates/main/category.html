@@ -2,36 +2,27 @@
 {% block content %}
     
     <div id="main-headline">
+    {% if category_obj.title == "cs" %}
+        <h2>C#</h2>
+
+    {% else %}
         <h2>{{ category_obj.title }}</h2>
+    {% endif %}
     </div>
     <div id="list">
-        <div class="list-item">
-            <img src="c_icon.png"/>
-            <p>How To 1 in c</p>
+        {% for topic in topics %}
+        <div class="list-item" onclick="openTopic('{{ topic.title }}')">
+            <!--<img src="c_icon.png"/>-->
+            <p>{{ topic.title }}</p>
         </div>
-        <div class="list-item">
-            <img src="c_icon.png"/>
-            <p>How To 1 in c</p>
-        </div>
-        <div class="list-item">
-            <img src="c_icon.png"/>
-            <p>How To 1 in c</p>
-        </div>
-        <div class="list-item">
-            <img src="c_icon.png"/>
-            <p>How To 1 in c</p>
-        </div>
-        <div class="list-item">
-            <img src="c_icon.png"/>
-            <p>How To 1 in c</p>
-        </div>
-        <div class="list-item">
-            <img src="c_icon.png"/>
-            <p>How To 1 in c</p>
-        </div>
-        <div class="list-item">
-            <img src="c_icon.png"/>
-            <p>How To 1 in c</p>
-        </div>
+        {% endfor %}
+
+        
     </div>   
+
+    <script>
+        function openTopic(topic){
+            window.open("/topic/{{ category_obj.title }}/" + topic, "_self");
+        }
+    </script>
 {% endblock content %}

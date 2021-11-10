@@ -20,12 +20,12 @@
         <h1>TealFire</h1>
 
         <div>
-            <a href="/category/python/">Python</a>
-            <a>C#</a>
-            <a>C++</a>
-            <a>C</a>
-            <a>Java</a>
-            <a>JavaScript</a>
+            <a id="a-python" href="/category/python/">Python</a>
+            <a id="a-cs" href="/category/cs/">C#</a>
+            <a id="a-c++" href="/category/c++/">C++</a>
+            <a id="a-c" href="/category/c/">C</a>
+            <a id="a-java" href="/category/java/">Java</a>
+            <a id="a-javascript" href="/category/javascript/">JavaScript</a>
         </div>
     </header>
     <main>
@@ -37,5 +37,15 @@
 
     <script src="{% static 'main/highlight/highlight.min.js' %}"></script>
     <script>hljs.highlightAll();</script>
+
+    <script>
+        {% if category_title %}
+            document.getElementById("a-{{ category_title }}").classList.add("a-current");
+        {% else %}
+            document.getElementById("a-{{ category_obj.title }}").classList.add("a-current");
+        {% endif %}
+        
+        
+    </script>
 </body>
 </html>
