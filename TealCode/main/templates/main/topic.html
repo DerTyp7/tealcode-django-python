@@ -1,12 +1,39 @@
 {% extends "main/base.html" %}
 {% block content %}
+    <div id="button-content">
+
+        <div>
+            {% if previous %}
+            <a href="/topic/{{ category_title }}/{{ previous.title }}/">Previous</a>
+            {% endif %}
+        </div>
+        
+
+        <div>
+            <a href="/category/{{ category_title }}/">Back To List</a>
+        </div>
+        
+
+        <div>
+            {% if next %}
+            <a href="/topic/{{ category_title }}/{{ next.title }}/">Next</a>
+            {% endif %}
+        </div>
+    </div>
+
     <div id="main-headline">
                 <h2>{{ title }}</h2>
             </div>
 
     <div id="main-content-code">
-        
+
         <pre><code  style="padding-top: 5px; padding-bottom: 5px;"class="language-{{category_title}}">{{code}}</code></pre>
+        
+        {% if version %}
+        <div class="note">
+            <p>{{version}}</p>
+        </div>
+        {% endif %}
     </div>
 
 {% endblock content %}

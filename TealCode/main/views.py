@@ -10,11 +10,17 @@ def topic(req, category, topic):
         category_obj = Category.objects.filter(title = category).first()
         if category_obj:
             topic_obj = Topic.objects.filter(title=topic, category = category_obj).first()
+            previous_obj = Topic.objects.filter(id = topic_obj.id-1, category = category_obj).first()
+            next_obj = Topic.objects.filter(id = topic_obj.id+1, category = category_obj).first()
+
             if topic_obj:
                 context = {
                     'title': topic_obj.title,
                     'code': topic_obj.code_text,
                     'category_title': category_obj.title,
+                    'version': topic_obj.version,
+                    'previous': previous_obj,
+                    'next': next_obj,
                 }
 
                 return render(req, "main/topic.html", context)
