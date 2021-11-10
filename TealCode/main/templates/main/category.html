@@ -9,6 +9,11 @@
         <h2>{{ category_obj.title }}</h2>
     {% endif %}
     </div>
+
+    <div id="search">
+        <input placeholder = "Search..." type="text" id="searchBar" onkeydown="search()" onkeyup="search()" onchange="search()">
+    </div>
+
     <div id="list">
         {% for topic in topics %}
         <div class="list-item" onclick="openTopic('{{ topic.title }}')">
@@ -21,6 +26,23 @@
     </div>   
 
     <script>
+        function search(){
+            var input = document.getElementById("searchBar");
+            var items = document.getElementsByClassName("list-item");
+
+            for (let index = 0; index < items.length; index++) {
+                const item = items[index];
+                const p = item.getElementsByTagName("p")[0];
+                
+                item.style.display = "none";
+
+                if(p.innerHTML.toLowerCase().includes(input.value.toLowerCase())){
+                    item.style.display = "block";
+                }
+
+            }
+        }
+
         function openTopic(topic){
             window.open("/topic/{{ category_obj.title }}/" + topic, "_self");
         }
