@@ -137,8 +137,8 @@ body main #main-content .note p{
 
 #button-content div{
     height: 60px;
-    width: 200px;
-    margin-left: 25px;
+    width: 150px;
+    margin-left: 60px;
     display: block;
     float:left;
 }
@@ -150,8 +150,8 @@ body main #main-content .note p{
     font-size: 13pt;
     font-weight: bold;
     text-decoration: none;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     background-color: rgba(95, 255, 175, 0.1);
     border: 5px solid rgb(34, 102, 71);
     transition: 0.1s;

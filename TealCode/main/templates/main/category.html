@@ -19,6 +19,7 @@
         <div class="list-item" onclick="openTopic('{{ topic.title }}')">
             <!--<img src="c_icon.png"/>-->
             <p>{{ topic.title }}</p>
+            <small style="display:none;">{{ topic.tags }}</small>
         </div>
         {% endfor %}
 
@@ -33,10 +34,12 @@
             for (let index = 0; index < items.length; index++) {
                 const item = items[index];
                 const p = item.getElementsByTagName("p")[0];
-                
-                item.style.display = "none";
+                const tags = item.getElementsByTagName("small")[0].innerHTML;
+                var value = input.value.toLowerCase().replace(".", "").replace(";", "").replace(",", "").replace(" ", "")
 
-                if(p.innerHTML.toLowerCase().includes(input.value.toLowerCase())){
+                item.style.display = "none";
+                
+                if(p.innerHTML.toLowerCase().includes(value) || tags.toLowerCase().includes(value)){
                     item.style.display = "block";
                 }
 
