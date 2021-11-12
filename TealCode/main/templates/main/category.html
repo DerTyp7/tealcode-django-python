@@ -2,12 +2,7 @@
 {% block content %}
     
     <div id="main-headline">
-    {% if category_obj.title == "cs" %}
-        <h2>C#</h2>
-
-    {% else %}
-        <h2>{{ category_obj.title }}</h2>
-    {% endif %}
+        <h2>{{ category_obj.display_name }}</h2>
     </div>
 
     <div id="search">
@@ -22,8 +17,6 @@
             <small style="display:none;">{{ topic.tags }}</small>
         </div>
         {% endfor %}
-
-        
     </div>   
 
     <script>
@@ -32,7 +25,7 @@
             var items = document.getElementsByClassName("list-item");
 
             for (let index = 0; index < items.length; index++) {
-                const item = items[index];
+                const item = items  [index];
                 const p = item.getElementsByTagName("p")[0];
                 const tags = item.getElementsByTagName("small")[0].innerHTML;
                 var value = input.value.toLowerCase().replace(".", "").replace(";", "").replace(",", "").replace(" ", "")
