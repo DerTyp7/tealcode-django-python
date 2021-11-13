@@ -21,6 +21,7 @@ def topic(req, category, topic):
                     'version': topic_obj.version,
                     'previous': previous_obj,
                     'next': next_obj,
+                    'output': topic_obj.output,
                 }
 
                 return render(req, "main/topic.html", context)

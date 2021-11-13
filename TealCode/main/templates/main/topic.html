@@ -28,10 +28,14 @@
     <div id="main-content-code">
 
         <pre><code  style="padding-top: 5px; padding-bottom: 5px;"class="language-{{category_title}}">{{code}}</code></pre>
-        
+        {% if output %}
+        <br>
+        <pre><code  style="padding-top: 5px; padding-bottom: 5px;"class="language-python">#Output: {{output}}</code></pre>
+        {% endif %}
+
         {% if version %}
         <div class="note">
-            <p>{{version}}</p>
+            <p>Tested in version: {{version}}</p>
         </div>
         {% endif %}
 
