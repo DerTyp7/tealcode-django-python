@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-84w$au&)%5rl8ud!82e%&)e&r+c0f9z%zlr4m9(76mebvx-r2@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'code.tealfire.de']
+ALLOWED_HOSTS = ['code.tealfire.de']
+
+if DEBUG:
+    ALLOWED_HOSTS.append('127.0.0.1')
 
 
 # Application definition
@@ -74,13 +77,24 @@ WSGI_APPLICATION = 'TealCode.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
-
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+                'NAME': 'tealcode',
+                'HOST': '127.0.0.1',
+                'PORT': '3306',
+                'USER': 'tealcode',
+                'PASSWORD': '^VA2&&wXtWUJhvtaLw%4AY^?^GdvLWXn',
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -119,6 +133,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+if not DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
