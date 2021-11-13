@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect
 from .models import Category, Topic
 
 def index(req):
-    return render(req, "main/index.html")
+
+    categorys_obj = Category.objects.all()
+    return render(req, "main/index.html", {'categorys': categorys_obj})
 
 def topic(req, category, topic):
 
@@ -42,3 +44,14 @@ def category(req, category):
     return redirect("main-index")
 
 
+
+
+
+
+
+def about(req):
+    return render(req, "main/about.html")
+
+
+def privacy(req):
+    return render(req, "main/privacy.html")

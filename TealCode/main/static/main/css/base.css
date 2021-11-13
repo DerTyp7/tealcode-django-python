@@ -3,8 +3,9 @@
     margin: 0;
 }
 
-body{
+html,body{
     background-color: rgba(38, 38, 42, 1);
+    height: 100%;
 }
 
 /* HEADER */
@@ -44,6 +45,13 @@ header div a:hover{
 }
 
 /* MAIN */
+main{
+    position: relative;
+    min-height: 85%;
+}
+
+
+
 main #main-content{
     background-color: rgb(26, 26, 29);
     width: 700px;
@@ -55,9 +63,47 @@ main #main-content{
     padding-bottom: 10px;
     margin-top: 40px;
 }
+
+main .main-text{
+    width: 650px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+main .main-text p{
+    word-spacing: 1.5px;
+    font-weight: normal;
+    color: rgb(255, 255, 255);
+}
+
 main #main-content #main-content-code{
     width: 600px;
     margin-left: 50px;
     margin-top: 50px;
     margin-bottom: 50px;
+}
+
+/* FOOTER */
+footer{
+    width: 100%;
+    height: 30px;
+}
+
+footer .footer-links{
+    margin-left: 50px;
+    margin-top: 15px;
+}
+
+footer .footer-links a{
+    margin-left: 30px;
+    color:rgb(137, 137, 141);
+    text-decoration: none;
+    cursor:pointer;
+}
+
+footer .footer-links a:hover{
+    color: white;
 }

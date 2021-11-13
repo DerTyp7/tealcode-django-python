@@ -20,7 +20,7 @@
 </head>
 <body>
     <header>
-        <h1>TealFire</h1>
+        <h1 style="cursor:pointer;" onclick="window.open('/', '_self')">TealCode</h1>
 
         <div>
             <a id="a-python" href="/category/python/">Python</a>
@@ -47,5 +47,12 @@
             document.getElementById("a-{{ category_obj.title }}").classList.add("a-current");
         {% endif %}        
     </script>
+
+    <footer>
+        <div class="footer-links">
+            <a href="/privacy">Cookies/Privacy/Datenschutz</a>
+            <a href="/about">About</a>
+        </div>
+    </footer>
 </body>
 </html>

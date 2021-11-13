@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 *{
     font-family: 'Roboto', sans-serif;
@@ -11,6 +11,24 @@ h1{
 }
 
 h2{
+    text-align: center;
+    letter-spacing: 2.5px;
+    text-transform: capitalize;
+}
+
+h3{
+    text-align: center;
+    letter-spacing: 2.5px;
+    text-transform: capitalize;
+}
+
+h4{
+    text-align: center;
+    letter-spacing: 2.5px;
+    text-transform: capitalize;
+}
+
+h5{
     text-align: center;
     letter-spacing: 2.5px;
     text-transform: capitalize;

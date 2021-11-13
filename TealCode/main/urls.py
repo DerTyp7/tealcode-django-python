@@ -5,4 +5,6 @@ urlpatterns = [
     path('', views.index, name="main-index"),
     path('topic/<str:category>/<str:topic>/', views.topic, name="main-topic"),
     path('category/<str:category>/', views.category, name="main-category"),
+    path('about/', views.about, name="main-about"),
+    path('privacy/', views.privacy, name="main-privacy"),
 ]
