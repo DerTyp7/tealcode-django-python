@@ -20,13 +20,16 @@
 </head>
 <body>
     <script>
-        document.cookie = "cookies_allowed=0";
-        cookies_allowed = document.cookie.split("cookies_allowed=")[1];
         
-        if(cookies_allowed){
+        cookies_allowed = document.cookie.split("cookies_allowed=")[1];
 
+
+        if(cookies_allowed == "1"){
+            console.log("LOAD ANALYTILCS");
+        }else if(cookies_allowed == "0"){
+            console.log("DO NOT LOAD ANALYTILCS");
         }else{
-            
+            document.cookie = "cookies_allowed=1";
         }
         
         
