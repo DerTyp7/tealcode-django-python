@@ -19,17 +19,29 @@
     {% endif %}
 </head>
 <body>
+    <div id="cookie_banner">
+        <p>We only use non-technical cookies for analysis purposes. Do you want to accept? (please)</p>
+        <button onclick='document.cookie = "cookies_allowed=1;path=/";window.location.reload();'>Accept</button>
+    </div>
+
+
     <script>
         
-        cookies_allowed = document.cookie.split("cookies_allowed=")[1];
+        cookies_allowed = document.cookie.split("cookies_allowed=")[1]
+        console.log(cookies_allowed)
 
+        if(cookies_allowed == null){
+            document.cookie = "cookies_allowed=0;path=/";
+            cookies_allowed = document.cookie.split("cookies_allowed=")[1]
+        }
+
+        cookies_allowed.replace(";","");
 
         if(cookies_allowed == "1"){
             console.log("LOAD ANALYTILCS");
+            document.getElementById("cookie_banner").style.display = "none";
         }else if(cookies_allowed == "0"){
             console.log("DO NOT LOAD ANALYTILCS");
-        }else{
-            document.cookie = "cookies_allowed=1";
         }
         
         
