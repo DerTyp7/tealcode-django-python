@@ -1,12 +1,12 @@
 /* TOPIC LIST */
 main #main-content #list{
-    width: 700px;
+    width: 100%;
     margin-top: 50px;
     margin-bottom: 50px;
 }
 
 main #main-content #list .list-item{
-    width: 600px;
+    width: 90%;
     margin-left: 50px;
     margin-top: 10px;
     padding-top: 10px;

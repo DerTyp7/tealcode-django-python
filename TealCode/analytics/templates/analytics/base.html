@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'main/css/fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/base.css' %}">
+
+    <title>TealCode | Analytics</title>
+</head>
+<body>
+    <header>
+        <h1 style="cursor:pointer;" onclick="window.open('/analytics/', '_self')">TealCode | Analytics</h1>
+
+        <div>
+            <a href="/">TealCode</a>
+        </div>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

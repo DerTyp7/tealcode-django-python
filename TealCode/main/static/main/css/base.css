@@ -1,11 +1,13 @@
 *{
     padding: 0;
     margin: 0;
+    transition-timing-function: linear;
 }
 
 html,body{
     background-color: rgba(38, 38, 42, 1);
     height: 100%;
+
 }
 
 /* HEADER */
@@ -13,19 +15,28 @@ header{
     background-color: rgb(34, 102, 71);
     padding: 10px;
     padding-left: 150px;
+    margin-top: 0px;
+    height: 35px;
     box-shadow: 0px 1px 20px 3px #1f1d1d;
+    
+}
+
+header h1{
+    float:left;
 }
 
 header div{
     float: right;
-    margin-top: -25px;
-    margin-right: 100px;
+    margin-top: 10px;
+    margin-right: 0px;
 }
 
 header div a{
     letter-spacing: 1.5px;
     padding-right: 10px;
     padding-left: 10px; 
+    padding-top: 5px;
+    padding-bottom: 5px;
     cursor:pointer;
     transition: 0.1s;
     transition-timing-function: linear;    
@@ -65,7 +76,7 @@ main #main-content{
 }
 
 main .main-text{
-    width: 650px;
+    width: 90%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -121,7 +132,7 @@ footer .footer-links a:hover{
     font-size: 13pt;
     color: white;
     font-weight: bold;
-    margin-top: 18px;
+    margin-top: 8px;
     margin-left: 200px;
 }
 
@@ -130,7 +141,7 @@ footer .footer-links a:hover{
     margin-right: 200px;
     width: 150px;
     height: 40px;
-    margin-top: -30px;
+    margin-top: -40px;
     border: 3px solid green;
     background-color: rgba(77, 77, 77, 0.5);
     color: white;
@@ -144,4 +155,62 @@ footer .footer-links a:hover{
 #cookie_banner button:hover{
     background-color: rgba(77, 77, 77, 0.801);
     border: 3px solid rgb(1, 180, 1);
+}
+
+
+/* BREAKPOINTS */
+@media screen and (max-width:1100px) {
+    #cookie_banner button{
+        margin-right: 5px;
+    }
+
+    
+}
+
+
+@media screen and (max-width:900px) {
+    header{
+        height: 80px;
+        padding-left: 10px;
+    }
+
+    header div{
+        float:left;
+        width: 100%;
+    }
+
+    #cookie_banner p{
+        margin-left: 5px;
+    }
+}
+
+@media screen and (max-width:700px) {
+    #main-content{
+        width:100%;
+    }
+
+    
+}
+
+@media screen and (max-width:670px) {
+
+    #cookie_banner p{
+        margin-left: 5px;
+        width: 100%;
+    }
+    #cookie_banner button{
+        margin-top: 10px;
+    }
+
+    #cookie_banner {
+        height: 130px;
+    }
+}
+
+@media screen and (max-width:500px) {
+
+
+    #cookie_banner {
+        height: 160px;
+    }
 }
