@@ -31,7 +31,7 @@ header div{
     margin-right: 0px;
 }
 
-header div a{
+header a{
     letter-spacing: 1.5px;
     padding-right: 10px;
     padding-left: 10px; 
@@ -45,12 +45,13 @@ header div a{
     text-align: center ;
 }
 
-header div .a-current{
+
+header .a-current{
     color:rgb(0, 255, 106);
     text-decoration: underline;
 }
 
-header div a:hover{
+header a:hover{
     color:rgb(0, 255, 106);
     text-decoration: underline;
 }
@@ -60,8 +61,6 @@ main{
     position: relative;
     min-height: 85%;
 }
-
-
 
 main #main-content{
     background-color: rgb(26, 26, 29);
@@ -73,6 +72,13 @@ main #main-content{
     padding-top: 20px;
     padding-bottom: 10px;
     margin-top: 40px;
+}
+
+main .main-content-block{
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
 }
 
 main .main-text{
@@ -170,7 +176,7 @@ footer .footer-links a:hover{
 
 @media screen and (max-width:900px) {
     header{
-        height: 80px;
+        height: 90px;
         padding-left: 10px;
     }
 

@@ -1,16 +1,14 @@
-{% extends "main/base.html" %}
+{% extends "base.html" %}
 {% block content %}
-<div id="main-headline">
   <h2>Welcome to TealCode</h2>
   <h5>Your code snippet directory</h5>
+<div id="list">
+  {% for category in categorys %}
+  <div class="list-item" onclick='window.open("/category/{{ category.title }}", "_self");'>
+      <!--<img src="c_icon.png"/>-->
+      <p>{{ category.display_name }}</p>
+  </div>
+  {% endfor %}
+</div>   
 
-  <div id="list">
-    {% for category in categorys %}
-    <div class="list-item" onclick='window.open("/category/{{ category.title }}", "_self");'>
-        <!--<img src="c_icon.png"/>-->
-        <p>{{ category.display_name }}</p>
-    </div>
-    {% endfor %}
-  </div>   
-</div>
 {% endblock content %}

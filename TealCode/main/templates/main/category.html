@@ -1,9 +1,7 @@
-{% extends "main/base.html" %}
+{% extends "base.html" %}
 {% block content %}
     
-    <div id="main-headline-container">
-        <h2>{{ category_obj.display_name }}</h2>
-    </div>
+    <h2>{{ category_obj.display_name }}</h2>
 
     <div id="search">
         <input placeholder = "Search..." type="text" id="searchBar" onkeydown="search()" onkeyup="search()" onchange="search()">
