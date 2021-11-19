@@ -7,7 +7,11 @@
     <meta charset="utf-8"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    {% if description %}
+    <meta name="description" content="TealCode - {{description}}"/>
+    {% else %}
     <meta name="description" content="TealCode - Your Code Snippet directory - Java, JavaScript, C, C#, C++, Python"/>
+    {% endif %}
     <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="stylesheet" href="{% static 'main/css/topic.css' %}">

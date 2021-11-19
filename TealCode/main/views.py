@@ -2,7 +2,6 @@ from django.http.response import HttpResponse
 from django.shortcuts import render, redirect
 from .models import Category, Topic
 from analytics.models import View
-from django.views.generic.base import TemplateView
 
 def index(req):
     view = View(ip=get_client_ip(req), home=True)
