@@ -1,3 +1,4 @@
+from django.http.response import HttpResponse
 from django.shortcuts import render, redirect
 from .models import Category, Topic
 from analytics.models import View
@@ -64,6 +65,7 @@ def about(req):
 
 def privacy(req):
     return render(req, "main/privacy.html")
+
 
 def get_client_ip(req):
     x_forwarded_for = req.META.get("HTTP_X_FORWARDED_FOR")

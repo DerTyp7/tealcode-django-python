@@ -1,0 +1,4 @@
+User-Agent: *
+Disallow: /AD/
+Disallow: /AD/*
+Disallow: /AD
