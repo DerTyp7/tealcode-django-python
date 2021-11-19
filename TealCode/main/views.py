@@ -2,6 +2,7 @@ from django.http.response import HttpResponse
 from django.shortcuts import render, redirect
 from .models import Category, Topic
 from analytics.models import View
+from django.views.generic.base import TemplateView
 
 def index(req):
     view = View(ip=get_client_ip(req), home=True)
@@ -58,6 +59,17 @@ def category(req, category):
 
 
 
+def sitemap(req):
+    topics = Topic.objects.all()
+    categories = Category.objects.all()
+    #REPLACE ALL BLANKS WITH %20
+
+
+    context = {
+        'topics': topics,
+        'categories': categories
+    }
+    return render(req, 'sitemap.xml', context, 'text/xml')
 
 def about(req):
     return render(req, "main/about.html")

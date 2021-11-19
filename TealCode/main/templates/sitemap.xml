@@ -1,3 +1,4 @@
+{% load filter_blank %}
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/0.9 http://www.sitemaps.org/schemas/0.9/sitemap.xsd">
     <!--Main Pages-->
     <url>
@@ -15,8 +16,21 @@
         <lastmod>2021-11-19T20:00:06+00:00</lastmod>
         <priority>0.70</priority>
     </url>
-    <!--Category Pages-->
 
+    <!--Category Pages-->
+    {% for c in categories %}
+    <url>
+        <loc>https://code.tealfire.de/category/{{c.title|filter_blank }}/</loc>
+        <lastmod>{{ c.date_created|date:"Y-m-d"  }}T{{ c.date_created|date:"H:i:s"  }}+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    {% endfor %}
     <!--Topic Pages-->
-    
+    {% for t in topics %}
+    <url>
+        <loc>https://code.tealfire.de/topic/{{t.category.title}}/{{t.title|filter_blank}}/</loc>
+        <lastmod>{{ t.date_created|date:"Y-m-d"  }}T{{ t.date_created|date:"H:i:s"  }}+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    {% endfor %}
 </urlset>

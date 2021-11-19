@@ -7,4 +7,5 @@ urlpatterns = [
     path('category/<str:category>/', views.category, name="main-category"),
     path('about/', views.about, name="main-about"),
     path('privacy/', views.privacy, name="main-privacy"),
+    path('sitemap.xml', views.sitemap, name="main-sitemap"),
 ]
