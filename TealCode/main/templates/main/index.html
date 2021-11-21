@@ -1,14 +1,42 @@
 {% extends "base.html" %}
 {% block content %}
-  <h2>Welcome to TealCode</h2>
-  <h5>Your code snippet directory</h5>
-<div id="list">
-  {% for category in categorys %}
-  <div class="list-item" onclick='window.open("/category/{{ category.title }}", "_self");'>
-      <!--<img src="c_icon.png"/>-->
-      <p>{{ category.display_name }}</p>
+<div class="container mx-auto">
+  <div class="row">
+
+    <div class="col text-center fw-bold">
+      <h2><br>Welcome to TealCode</h2>
+      <h5>Your code snippet directory</h5>
+    </div>
+
   </div>
-  {% endfor %}
-</div>   
+
+  <div class="row">
+    <div class="col">
+      d
+    </div>
+
+    <div class="col col-8 text-center fw-bold">
+      <div class="container">
+        <h5><br>Categories</h5>
+        <div class="container ">
+          <div class="list-group bg-dark">
+            {% for category in categorys %}
+            <button onclick='window.open("/category/{{ category.title }}", "_self");' type="button" class="list-group-item list-group-item-action">{{ category.display_name }}</button>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <h5><br>Activity</h5>
+    </div>
+  </div>
+</div>
+
+
+
+
+
 
 {% endblock content %}

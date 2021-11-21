@@ -2,20 +2,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-    <!-- Required meta tags -->
+    <!-- Required META Tags-->
     <meta charset="utf-8"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    {% if description %}
-    <meta name="description" content="TealCode - {{description}}"/>
-    {% else %}
-    <meta name="description" content="TealCode - Your Code Snippet directory - Java, JavaScript, C, C#, C++, Python"/>
-    {% endif %}
-    <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    <link rel="stylesheet" href="{% static 'main/css/topic.css' %}">
-    <link rel="stylesheet" href="{% static 'main/css/category.css' %}">
+
+    <!-- Optional META Tags -->
+    <meta name="keywords" content="TealFire, TealCode, Snippet, Java, JavaScript, C, C#, C++, Python">
+    <meta name="author" content="TealFire - TealCode">
+    <meta name="description" content="TealCode - Your Code Snippet directory - Java, C, C#, C++, Python"/>
+    <meta http-equiv="refresh" content="1800">
+
+    <!-- Links -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'main/highlight/styles/atom-one-dark.min.css' %}">
 
     {% if title %}
@@ -24,17 +24,14 @@
         <title>TealCode</title>
     {% endif %}
 </head>
-<body>
+<body class="bg-dark">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9M4H60DMBG"></script>
     <div id="cookie_banner">
         <p>We only use non-technical cookies for analysis purposes.<br> Do you want to accept those cookies? (please)</p>
         <button onclick='document.cookie = "cookies_allowed=1;path=/";window.location.reload();'>Accept</button>
     </div>
-
-
     <script>
-        
         cookies_allowed = document.cookie.split("cookies_allowed=")[1][0]
         console.log(cookies_allowed)
 
@@ -52,34 +49,33 @@
         }else if(cookies_allowed == "0"){
             console.log("DO NOT LOAD ANALYTILCS");
         }
-        
-        
-        
     </script>
 
 
-    <header>
-        <h1 style="cursor:pointer;" onclick="window.open('/', '_self')">TealCode </h1>
+    <header class="p-3 bg-dark text-white shadow">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    <img height="40" src="{% static 'logo.png' %}" alt=""/>
+                </a>
 
-        <div>
-            <a id="a-python" href="/category/python/">Python</a>
-            <a id="a-cs" href="/category/cs/">C#</a>
-            <a id="a-c++" href="/category/c++/">C++</a>
-            <a id="a-c" href="/category/c/">C</a>
-            <a id="a-java" href="/category/java/">Java</a>
-            <a id="a-javascript" href="/category/javascript/">JavaScript</a>
-        </div>
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="/" class="nav-link px-2 text-secondary">Categories</a></li>
+                    <li><a href="/category/java/" class="nav-link px-2 text-white">Java</a></li>
+                    <li><a href="/category/python/" class="nav-link px-2 text-white">Python</a></li>
+                    <li><a href="/category/c/" class="nav-link px-2 text-white">C</a></li>
+                    <li><a href="/category/cs/" class="nav-link px-2 text-white">C#</a></li>
+                    <li><a href="/category/c++/" class="nav-link px-2 text-white">C++</a></li>
+                </ul>
 
-        {% if user.is_authenticated %}
-        <div id="header-admin">
-            <a id="a-analytics" href="/analytics/">Analytics</a>
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+                    <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+                </form>                
+            </div>
         </div>
-        {% endif %}
     </header>
     <main>
-        <div id="main-content">            
-            {% block content %}{% endblock %}
-        </div>
+        {% block content %}{% endblock %}
     </main>
 
     <script src="{% static 'main/highlight/highlight.min.js' %}"></script>
@@ -95,11 +91,13 @@
         
     </script>
 
-    <footer>
-        <div class="footer-links">
-            <a href="/privacy">Cookies/Privacy/Datenschutz</a>
-            <a href="/about">About</a>
-        </div>
+    <footer class="py-3 my-4">
+        <ul class="nav justify-content-center pb-3 mb-3">
+          <li class="nav-item"><a href="/privacy/" class="nav-link px-2 text-muted">Cookies/Privacy/Datenschutz</a></li>
+          <li class="nav-item"><a href="/about/" class="nav-link px-2 text-muted">About</a></li>
+        </ul>
     </footer>
+
+    <script src="{% static 'js/bootstrap.js' %}"></script>
 </body>
 </html>
