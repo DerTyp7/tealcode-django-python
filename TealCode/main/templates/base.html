@@ -27,9 +27,9 @@
 <body class="bg-dark">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9M4H60DMBG"></script>
-    <div id="cookie_banner">
+    <div style="background-color: rgba(255, 255, 255, 0.219);" id="cookie_banner" class="text-center">
         <p>We only use non-technical cookies for analysis purposes.<br> Do you want to accept those cookies? (please)</p>
-        <button onclick='document.cookie = "cookies_allowed=1;path=/";window.location.reload();'>Accept</button>
+        <button class="btn btn-success mb-3" onclick='document.cookie = "cookies_allowed=1;path=/";window.location.reload();'>Accept</button>
     </div>
     <script>
         cookies_allowed = document.cookie.split("cookies_allowed=")[1][0]

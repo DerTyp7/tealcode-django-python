@@ -18,3 +18,18 @@
 .nav-link:hover{
     color:rgb(21, 200, 132) !important;
 }
+
+.list-group-item{
+    background-color: rgb(32, 102, 99);
+    color: white;
+    font-size: 13pt;
+    transition: 0.1s;
+    transition-timing-function: linear;
+    letter-spacing: 1px;
+}
+
+.list-group-item:hover{
+    color: white;
+    letter-spacing: 5px;
+    background-color: rgb(36, 126, 121);
+}

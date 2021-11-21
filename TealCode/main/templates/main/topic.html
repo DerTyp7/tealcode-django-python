@@ -1,45 +1,62 @@
 {% extends "base.html" %}
 {% block content %}
-    <div id="button-content">
-
-        <div>
-            {% if previous %}
-            <a href="/topic/{{ category_title }}/{{ previous.title }}/">Previous</a>
-            {% endif %}
+<div class="container">
+    <div class="row">
+        <div class="col text-center mt-3">
+            <h2>{{ title }}</h2>
         </div>
-        
-
-        <div>
-            <a href="/category/{{ category_title }}/">Back To List</a>
-        </div>
-        
-
-        <div>
-            {% if next %}
-            <a href="/topic/{{ category_title }}/{{ next.title }}/">Next</a>
-            {% endif %}
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="container pb-5">
+                <div class="row text-center">
+                    <div class="col">
+                        {% if previous %}
+                        <button onclick="window.open('/topic/{{ category_title }}/{{ previous.title }}/', '_self')" type="button" class="btn btn-outline-success">Previous</button>
+                        {% endif %}
+                    </div>
+                    <div class="col">
+                        <button onclick="window.open('/category/{{ category_title }}/', '_self')" type="button" class="btn btn-outline-primary">Back To Category</button>
+                    </div>
+                    <div class="col">
+                        {% if next %}
+                        <button onclick="window.open('/topic/{{ category_title }}/{{ next.title }}/', '_self')" type="button" class="btn btn-outline-success">Next</button>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <h2>{{ title }}</h2>
+    <div class="row">
+        <div class="col">
+            nav
+        </div>
+
+        <div class="col col-10">
+            <pre><code  style="padding-top: 5px; padding-bottom: 5px; font-size: 18pt;"class="border border-secondary language-{{category_title}}">{{code}}</code></pre>
+
+            {% if output %}
+            <pre><code  style="padding-top: 5px; padding-bottom: 5px;font-size: 15pt"class="language-python">#Output: {{output}}</code></pre>
+            {% endif %}
+    
+            {% if version %}
+            <small class="text-muted">tested in version: {{version}}</small>
+            {% endif %}
+        </div>
+
+        <div class="col">
+
+        </div>
+    </div>
+    
             
     <div id="main-content-code">
 
-        <pre><code  style="padding-top: 5px; padding-bottom: 5px;"class="language-{{category_title}}">{{code}}</code></pre>
-        {% if output %}
-        <br>
-        <pre><code  style="padding-top: 5px; padding-bottom: 5px;"class="language-python">#Output: {{output}}</code></pre>
-        {% endif %}
+        
 
-        {% if version %}
-        <div class="note">
-            <p>Tested in version: {{version}}</p>
-        </div>
-        {% endif %}
-
-        <div class="vote_buttons">
-            
-        </div>
     </div>
+</div>
+
 
 {% endblock content %}
