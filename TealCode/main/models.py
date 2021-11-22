@@ -1,7 +1,5 @@
 from django.db import models
-from django.db.models.fields.related import ForeignKey
 from django.utils import timezone
-from taggit.managers import TaggableManager
 
 class Category(models.Model):
     title = models.CharField(max_length=100, unique=True)
@@ -20,7 +18,6 @@ class Topic(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     version = models.CharField(max_length=100, blank=True)
     read_more = models.TextField(blank=True)
-    tags = TaggableManager()
 
     def __str__(self):
         return self.category.title + " - " + self.title

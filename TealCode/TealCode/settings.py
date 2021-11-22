@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main.apps.MainConfig',
     'analytics.apps.AnalyticsConfig',
-    'taggit',
 ]
 
 MIDDLEWARE = [
