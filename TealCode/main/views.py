@@ -4,7 +4,7 @@ from .models import Category, Topic, Rating
 from analytics.models import View
 
 def index(req):
-    view = View(ip=get_client_ip(req), home=True)
+    view = View(ip=get_ip(req), home=True)
     view.save()
     categorys_obj = Category.objects.all()
     return render(req, "main/index.html", {'categorys': categorys_obj})
@@ -20,13 +20,13 @@ def topic(req, category, topic):
             helpful_count = 0
             notHelpful_count = 0
 
-            for rating in Rating.objects.all():
+            for rating in Rating.objects.filter(topic=topic_obj):
                 if rating.is_positive == 1:
                     helpful_count = helpful_count+1
                 else:
                     notHelpful_count = notHelpful_count +1
 
-            if topic_obj:
+            if topic_obj:# topic_obj.title
                 context = {
                     'title': topic_obj.title,
                     'code': topic_obj.code_text,
@@ -42,7 +42,7 @@ def topic(req, category, topic):
                 }
 
 
-                view = View(ip=get_client_ip(req), topic=topic_obj)
+                view = View(ip=get_ip(req), topic=topic_obj)
                 view.save()
                 return render(req, "main/topic.html", context)
 
@@ -57,7 +57,7 @@ def category(req, category):
         if category_obj:
             topics_obj = Topic.objects.filter(category=category_obj)
 
-            view = View(ip=get_client_ip(req), category=category_obj)
+            view = View(ip=get_ip(req), category=category_obj)
             view.save()
 
             context = {
@@ -100,26 +100,28 @@ def privacy(req):
     return render(req, "main/privacy.html", {'current': 'privacy'})
 
 def rating(req, topic_title, is_positive):
-    if(Rating.objects.filter(ip=get_client_ip(req))):
-        return redirect("main-index")
-    
-
     topic = Topic.objects.filter(title=topic_title).first()
+
+
+    if(Rating.objects.filter(ip=get_ip(req), topic=topic)):
+        return redirect("main-index")
 
     if is_positive == 1:
         is_positive = True
     else:
         is_positive = False
 
-    rating = Rating(topic=topic, is_positive=is_positive, ip=get_client_ip(req))
+    rating = Rating(topic=topic, is_positive=is_positive, ip=get_ip(req))
 
     rating.save()
     return redirect("main-index")
 
-def get_client_ip(req):
-    x_forwarded_for = req.META.get("HTTP_X_FORWARDED_FOR")
-    if x_forwarded_for:
-        ip = x_forwarded_for.split[","][0]
+def get_ip(req):
+    ip = req.META.get('HTTP_X_REAL_IP') 
+    if ip is None:
+        return "x.x.x.x"
     else:
-        ip = req.META.get("REMOTE_ADDR")
-    return ip
+        # We got the client's IP address
+        return ip
+    
+
