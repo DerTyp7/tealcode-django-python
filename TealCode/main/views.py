@@ -1,6 +1,6 @@
-from django.http.response import HttpResponse
+from django.http.response import HttpResponse, HttpResponseForbidden
 from django.shortcuts import render, redirect
-from .models import Category, Topic
+from .models import Category, Topic, Rating
 from analytics.models import View
 
 def index(req):
@@ -17,6 +17,14 @@ def topic(req, category, topic):
             topic_obj = Topic.objects.filter(title=topic, category = category_obj).first()
             previous_obj = Topic.objects.filter(id = topic_obj.id-1, category = category_obj).first()
             next_obj = Topic.objects.filter(id = topic_obj.id+1, category = category_obj).first()
+            helpful_count = 0
+            notHelpful_count = 0
+
+            for rating in Rating.objects.all():
+                if rating.is_positive == 1:
+                    helpful_count = helpful_count+1
+                else:
+                    notHelpful_count = notHelpful_count +1
 
             if topic_obj:
                 context = {
@@ -28,8 +36,9 @@ def topic(req, category, topic):
                     'next': next_obj,
                     'output': topic_obj.output,
                     'current': category_obj.title,
-                    'helpful_count': 2,
-                    'notHelpful_count': 2,
+                    'helpful_count': helpful_count,
+                    'notHelpful_count': notHelpful_count,
+                    'read_more': topic_obj.read_more,
                 }
 
 
@@ -90,8 +99,22 @@ def about(req):
 def privacy(req):
     return render(req, "main/privacy.html", {'current': 'privacy'})
 
-def rating(req, topic, is_positive):
-    return HttpResponse("<h1>HALLO</h1>")
+def rating(req, topic_title, is_positive):
+    if(Rating.objects.filter(ip=get_client_ip(req))):
+        return redirect("main-index")
+    
+
+    topic = Topic.objects.filter(title=topic_title).first()
+
+    if is_positive == 1:
+        is_positive = True
+    else:
+        is_positive = False
+
+    rating = Rating(topic=topic, is_positive=is_positive, ip=get_client_ip(req))
+
+    rating.save()
+    return redirect("main-index")
 
 def get_client_ip(req):
     x_forwarded_for = req.META.get("HTTP_X_FORWARDED_FOR")

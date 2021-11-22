@@ -32,4 +32,4 @@ class Rating(models.Model):
     date_created = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return self.topic.title + " - " + self.is_positive + " - " + self.ip + " - " + self.date_created
+        return self.topic.title + " - " + self.ip
