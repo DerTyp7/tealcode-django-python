@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="{% static 'main/highlight/styles/atom-one-dark.min.css' %}">
 
     {% if title %}
-        <title>TealCode - {{ title }} - {{ category_title }}</title>
+        <title>TealCode - {{ title }}</title>
     {% else %}
         <title>TealCode</title>
     {% endif %}
@@ -61,12 +61,12 @@
                 </a>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="/" class="nav-link px-2 text-white">Categories</a></li>
-                    <li><a href="/category/java/" class="nav-link px-2 text-white">Java</a></li>
-                    <li><a href="/category/python/" class="nav-link px-2 text-white">Python</a></li>
-                    <li><a href="/category/c/" class="nav-link px-2 text-white">C</a></li>
-                    <li><a href="/category/cs/" class="nav-link px-2 text-white">C#</a></li>
-                    <li><a href="/category/c++/" class="nav-link px-2 text-white">C++</a></li>
+                    <li><a id="a-index" href="/" class="nav-link px-2 text-white">Categories</a></li>
+                    <li><a id="a-java" href="/category/java/" class="nav-link px-2 text-white">Java</a></li>
+                    <li><a id="a-python" href="/category/python/" class="nav-link px-2 text-white">Python</a></li>
+                    <li><a id="a-c" href="/category/c/" class="nav-link px-2 text-white">C</a></li>
+                    <li><a id="a-cs" href="/category/cs/" class="nav-link px-2 text-white">C#</a></li>
+                    <li><a id="a-c++" href="/category/c++/" class="nav-link px-2 text-white">C++</a></li>
                 </ul>
 
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
@@ -94,11 +94,19 @@
 
     <footer class="py-3 my-4">
         <ul class="nav justify-content-center pb-3 mb-3">
-          <li class="nav-item"><a href="/privacy/" class="nav-link px-2 text-muted">Cookies/Privacy/Datenschutz</a></li>
-          <li class="nav-item"><a href="/about/" class="nav-link px-2 text-muted">About</a></li>
+          <li class="nav-item"><a id="a-privacy" href="/privacy/" class="nav-link px-2 text-muted">Cookies/Privacy/Datenschutz</a></li>
+          <li class="nav-item"><a id="a-about"href="/about/" class="nav-link px-2 text-muted">About</a></li>
         </ul>
     </footer>
 
+
+    <script>
+        {% if current %}
+            document.getElementById('a-{{ current }}').classList.add("current");
+        {% else %}
+            document.getElementById('a-index').classList.add("current");
+        {% endif %}
+    </script>
     <script src="{% static 'js/bootstrap.js' %}"></script>
 </body>
 </html>

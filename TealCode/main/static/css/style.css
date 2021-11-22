@@ -19,6 +19,11 @@
     color:rgb(21, 200, 132) !important;
 }
 
+.current{
+    color:rgb(21, 200, 132) !important;
+    text-decoration: underline;
+}
+
 .list-group-item{
     background-color: rgb(32, 102, 99);
     color: white;

@@ -27,6 +27,9 @@ def topic(req, category, topic):
                     'previous': previous_obj,
                     'next': next_obj,
                     'output': topic_obj.output,
+                    'current': category_obj.title,
+                    'helpful_count': 2,
+                    'notHelpful_count': 2,
                 }
 
 
@@ -48,12 +51,22 @@ def category(req, category):
             view = View(ip=get_client_ip(req), category=category_obj)
             view.save()
 
-            return render(req, "main/category.html", {'category_obj': category_obj, 'topics': topics_obj})
+            context = {
+                'category_obj': category_obj,
+                'topics': topics_obj,
+                'current': category_obj.title,
+                'title': category_obj.display_name,
+            }
+
+            return render(req, "main/category.html", context)
         
     
     return redirect("main-index")
 
 
+def search(req, value): # https://django-taggit.readthedocs.io/en/latest/getting_started.html        
+    
+    return HttpResponse("<h1>moin</h1>")
 
 
 
@@ -71,12 +84,14 @@ def sitemap(req):
     return render(req, 'sitemap.xml', context, 'text/xml')
 
 def about(req):
-    return render(req, "main/about.html")
+    return render(req, "main/about.html", {'current': 'about'})
 
 
 def privacy(req):
-    return render(req, "main/privacy.html")
+    return render(req, "main/privacy.html", {'current': 'privacy'})
 
+def rating(req, topic, is_positive):
+    return HttpResponse("<h1>HALLO</h1>")
 
 def get_client_ip(req):
     x_forwarded_for = req.META.get("HTTP_X_FORWARDED_FOR")
