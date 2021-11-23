@@ -4,7 +4,7 @@ from .models import Category, Topic, Rating
 from analytics.models import View
 
 def index(req):
-    view = View(ip=get_ip(req), home=True)
+    view = View(ip=get_ip(req), custom_title="index")
     view.save()
     categorys_obj = Category.objects.all()
     return render(req, "main/index.html", {'categorys': categorys_obj})
