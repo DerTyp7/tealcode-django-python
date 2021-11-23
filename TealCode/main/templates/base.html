@@ -2,6 +2,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+	
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PGM5LTFSMG"></script>
     <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create', 'UA-213552250-1', {'storage': 'none',});ga('send', 'pageview');</script>
@@ -19,18 +21,19 @@
     <meta name="author" content="TealFire - TealCode">
     <meta name="description" content="TealCode - Your Code Snippet directory - Java, C, C#, C++, Python"/>
     <meta http-equiv="refresh" content="1800">
-
-    <!-- Links -->
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'main/highlight/styles/atom-one-dark.min.css' %}">
-
-    {% if title %}
+	<!-- Title -->
+	{% if title %}
         <title>TealCode - {{ title }}</title>
     {% else %}
         <title>TealCode</title>
     {% endif %}
+	
+    <!-- Links -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'main/highlight/styles/atom-one-dark.min.css' %}">
+
+    
 </head>
 <body class="bg-dark">
     
