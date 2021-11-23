@@ -4,14 +4,9 @@
 <head>
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PGM5LTFSMG"></script>
-    <script>
-        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-        ga('create', 'UA-213552250-1', {
-            'storage': 'none',
-        });
-        ga('send', 'pageview');
-    </script>
+    <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create', 'UA-213552250-1', {'storage': 'none',});ga('send', 'pageview');</script>
     <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <script src="{% static 'js/cookies.js' %}"></script>
     <!-- End Google Analytics -->
 
     <!-- Required META Tags-->
@@ -38,7 +33,7 @@
     {% endif %}
 </head>
 <body class="bg-dark">
-    <script src="{% static 'js/cookies.js' %}"></script>
+    
 
 
     <header class="p-3 bg-dark text-white shadow">
