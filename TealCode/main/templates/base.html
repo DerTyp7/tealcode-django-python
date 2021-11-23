@@ -2,6 +2,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PGM5LTFSMG"></script>
+    <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create', 'UA-213552250-1', {'storage': 'none',});ga('send', 'pageview');</script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <script src="{% static 'js/cookies.js' %}"></script>
+    <!-- End Google Analytics -->
+
     <!-- Required META Tags-->
     <meta charset="utf-8"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -26,31 +33,7 @@
     {% endif %}
 </head>
 <body class="bg-dark">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9M4H60DMBG"></script>
-    <div style="background-color: rgba(255, 255, 255, 0.219);" id="cookie_banner" class="text-center">
-        <p>We only use non-technical cookies for analysis purposes.<br> Do you want to accept those cookies? (please)</p>
-        <button class="btn btn-success mb-3" onclick='document.cookie = "cookies_allowed=1;path=/";window.location.reload();'>Accept</button>
-    </div>
-    <script>
-        cookies_allowed = document.cookie.split("cookies_allowed=")[1][0]
-        console.log(cookies_allowed)
-
-        if(cookies_allowed == null){
-            document.cookie = "cookies_allowed=0;path=/";
-            cookies_allowed = document.cookie.split("cookies_allowed=")[1]
-        }
-        if(cookies_allowed == "1"){
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-9M4H60DMBG');
-            document.getElementById("cookie_banner").style.display = "none";
-        }else if(cookies_allowed == "0"){
-            console.log("DO NOT LOAD ANALYTILCS");
-        }
-    </script>
+    
 
 
     <header class="p-3 bg-dark text-white shadow">

@@ -41,8 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main.apps.MainConfig',
-    'analytics.apps.AnalyticsConfig',
-    'ipware',
 ]
 
 MIDDLEWARE = [

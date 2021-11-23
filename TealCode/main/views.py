@@ -1,11 +1,8 @@
-from django.http.response import HttpResponse, HttpResponseForbidden
+from django.http.response import HttpResponse
 from django.shortcuts import render, redirect
 from .models import Category, Topic, Rating
-from analytics.models import View
 
 def index(req):
-    view = View(ip=get_ip(req), home=True)
-    view.save()
     categorys_obj = Category.objects.all()
     return render(req, "main/index.html", {'categorys': categorys_obj})
 
@@ -40,10 +37,6 @@ def topic(req, category, topic):
                     'notHelpful_count': notHelpful_count,
                     'read_more': topic_obj.read_more,
                 }
-
-
-                view = View(ip=get_ip(req), topic=topic_obj)
-                view.save()
                 return render(req, "main/topic.html", context)
 
     return redirect("main-index")
@@ -56,9 +49,6 @@ def category(req, category):
         category_obj = Category.objects.filter(title = category).first()
         if category_obj:
             topics_obj = Topic.objects.filter(category=category_obj)
-
-            view = View(ip=get_ip(req), category=category_obj)
-            view.save()
 
             context = {
                 'category_obj': category_obj,
@@ -83,8 +73,6 @@ def search(req, value): # https://django-taggit.readthedocs.io/en/latest/getting
 def sitemap(req):
     topics = Topic.objects.all()
     categories = Category.objects.all()
-    #REPLACE ALL BLANKS WITH %20
-
 
     context = {
         'topics': topics,
