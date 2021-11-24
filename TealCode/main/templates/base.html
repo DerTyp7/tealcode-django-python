@@ -2,24 +2,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
-	
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PGM5LTFSMG"></script>
-    <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create', 'UA-213552250-1', {'storage': 'none',});ga('send', 'pageview');</script>
-    <script async src='https://www.google-analytics.com/analytics.js'></script>
-    <script src="{% static 'js/cookies.js' %}"></script>
-    <!-- End Google Analytics -->
-
     <!-- Required META Tags-->
     <meta charset="utf-8"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
     <!-- Optional META Tags -->
-    <meta name="keywords" content="TealFire, TealCode, Snippet, Java, JavaScript, C, C#, C++, Python">
+    {% if keywords %}
+        <meta name="keywords" content="TealFire, TealCode, Snippet, {{ keywords }}">
+    {% else %}
+        <meta name="keywords" content="TealFire, TealCode, Snippet, Java, JavaScript, C, C#, C++, Python">
+    {% endif %}
+
+    {% if description %}
+        <meta name="description" content="TealCode - {{ description }}"/>
+    {% else %}
+        <meta name="description" content="TealCode - Your Code Snippet directory - Java, C, C#, C++, Python"/>
+    {% endif %}
+    
     <meta name="author" content="TealFire - TealCode">
-    <meta name="description" content="TealCode - Your Code Snippet directory - Java, C, C#, C++, Python"/>
     <meta http-equiv="refresh" content="1800">
 	<!-- Title -->
 	{% if title %}
@@ -29,23 +30,26 @@
     {% endif %}
 	
     <!-- Links -->
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'main/highlight/styles/atom-one-dark.min.css' %}">
-
     
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PGM5LTFSMG"></script>
+    <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create', 'UA-213552250-1', {'storage': 'none',});ga('send', 'pageview');</script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <script src="{% static 'js/cookies.js' %}"></script>
+    <!-- End Google Analytics -->
 </head>
 <body class="bg-dark">
-    
-
-
     <header class="p-3 bg-dark text-white shadow">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
                     <img height="40" src="{% static 'logo.png' %}" alt=""/>
                 </a>
-
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <li><a id="a-index" href="/" class="nav-link px-2 text-white">Categories</a></li>
                     <li><a id="a-java" href="/category/java/" class="nav-link px-2 text-white">Java</a></li>
@@ -74,8 +78,6 @@
         {% else %}
             document.getElementById("a-{{ category_obj.title }}").classList.add("a-current");
         {% endif %}        
-
-        
     </script>
 
     <footer class="py-3 my-4">
