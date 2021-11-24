@@ -36,6 +36,8 @@ def topic(req, category, topic):
                     'helpful_count': helpful_count,
                     'notHelpful_count': notHelpful_count,
                     'read_more': topic_obj.read_more,
+                    'keywords': topic_obj.tags,
+                    'description': topic_obj.description,
                 }
                 return render(req, "main/topic.html", context)
 
@@ -55,6 +57,8 @@ def category(req, category):
                 'topics': topics_obj,
                 'current': category_obj.title,
                 'title': category_obj.display_name,
+                'keywords': category_obj.tags,
+                'description': category_obj.description,
             }
 
             return render(req, "main/category.html", context)

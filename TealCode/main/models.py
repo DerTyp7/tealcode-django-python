@@ -5,6 +5,8 @@ class Category(models.Model):
     title = models.CharField(max_length=100, unique=True)
     display_name = models.CharField(max_length= 100)
     date_created = models.DateTimeField(default=timezone.now)
+    tags = models.CharField(max_length=250)
+    description = models.CharField(max_length=250)
     
     def __str__(self):
         return self.title
@@ -18,6 +20,8 @@ class Topic(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     version = models.CharField(max_length=100, blank=True)
     read_more = models.TextField(blank=True)
+    tags = models.CharField(max_length=250)
+    description = models.CharField(max_length=250)
 
     def __str__(self):
         return self.category.title + " - " + self.title
