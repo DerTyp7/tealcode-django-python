@@ -91,6 +91,10 @@ def about(req):
 def privacy(req):
     return render(req, "main/privacy.html", {'current': 'privacy'})
 
+def tos(req):
+    return render(req, "main/tos.html", {'current': 'tos'})
+
+
 def rating(req, topic_title, is_positive):
     topic = Topic.objects.filter(title=topic_title).first()
 

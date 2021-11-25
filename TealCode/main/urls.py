@@ -7,6 +7,7 @@ urlpatterns = [
     path('category/<str:category>/', views.category, name="main-category"),
     path('about/', views.about, name="main-about"),
     path('privacy/', views.privacy, name="main-privacy"),
+    path('tos/', views.tos, name="main-tos"),
     path('rating/<str:topic_title>/<int:is_positive>/', views.rating, name="main-rating"),
     path('search/<str:value>/', views.search, name="main-search"),
     path('sitemap.xml', views.sitemap, name="main-sitemap"),
