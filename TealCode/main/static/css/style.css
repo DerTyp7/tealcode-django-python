@@ -38,3 +38,20 @@
     letter-spacing: 5px;
     background-color: rgb(36, 126, 121);
 }
+.form-dark{
+    color:white !important;
+}
+.form-dark input,textarea{
+    background-color: rgba(255, 255, 255, 0.089) !important;
+    color:white !important;
+    border: 2px solid rgb(27, 41, 35)  !important;
+}
+
+.form-dark input:hover,textarea:hover{
+    border: 2px solid rgb(61, 138, 102) !important;
+}
+
+.form-dark input:focus,textarea:focus{
+    border: 2px solid rgb(61, 138, 102) !important;
+}
+

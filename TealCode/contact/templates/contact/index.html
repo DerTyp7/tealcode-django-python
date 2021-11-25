@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+    <div class="row text-center pt-3">
+        {% if form %}
+        <h2>Contact Us</h2>
+        {% endif %}
+    </div>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-7">
+            <div class="container">
+                {% if form %}
+                <form method="POST" class="form form-dark text-white">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <hr>
+                    <small class="text-muted">We try to answer you as soon as possible!</small>
+                </form>
+                {% else %}
+                <h2 class="text-center pt-3">Your Message has been sent</h2>
+                <h5 class="text-center pt-3">We try to answer you as soon as possible!</h5>
+
+                <div class="container mx-auto text-center">
+                    <button class="btn-outline-success btn mt-5" onclick="window.open('/contact/', '_self');">Back</button>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>    
+{% endblock content %}

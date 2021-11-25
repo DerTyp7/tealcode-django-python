@@ -19,6 +19,7 @@ from django.views.generic.base import TemplateView
 
 urlpatterns = [
     path('', include('main.urls')),
+    path('contact/', include('contact.urls')),
     path("robots.txt", TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
     path('AD/SDGFOLKJASDNVASDFASDFSLAKDF/', admin.site.urls),
 ]
